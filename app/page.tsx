@@ -60,19 +60,10 @@ export default function CADProjectsWebsite() {
 
       {/* HERO */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-        >
-          <source src="hero.mp4" type="video/mp4" />
-        </video>
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
-
-        <div className="absolute inset-0 opacity-[0.04] bg-[url('/cad-grid.svg')] bg-cover" />
+        <div className="absolute inset-0 bg-zinc-950" />
+        <div className="absolute inset-0 opacity-[0.08] bg-[url('/metal-texture.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 opacity-[0.15] bg-[url('/cad-grid.jpg')] bg-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black" />
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -112,10 +103,8 @@ export default function CADProjectsWebsite() {
             </div>
           </div>
 
-          <div className="relative hidden lg:block">
+<div className="relative hidden lg:block">
             <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ repeat: Infinity, duration: 6 }}
               className="relative rounded-[2rem] overflow-hidden border border-white/10 bg-zinc-950/60 backdrop-blur-xl shadow-2xl"
             >
               <img
@@ -220,6 +209,38 @@ export default function CADProjectsWebsite() {
         </div>
       </section>
 
+{/* FEATURED VIDEO */}
+<section className="relative py-32 bg-black border-y border-white/10">
+  <div className="max-w-7xl mx-auto px-6">
+
+    <div className="mb-16 text-center">
+      <p className="text-[#FF834F] uppercase tracking-[0.3em] text-sm mb-4">
+        Inside CAD Projects
+      </p>
+
+      <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
+        Engineering Ideas Into Reality
+      </h2>
+
+      <p className="text-zinc-400 max-w-3xl mx-auto text-lg">
+        A closer look into our Siemens NX workflow, rapid prototyping process,
+        and collaborative mechanical design approach.
+      </p>
+    </div>
+
+    <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+      <iframe
+        className="w-full h-full"
+        src="https://www.youtube.com/embed/I8RGWT5M0Hw?autoplay=1&mute=1&loop=1&playlist=I8RGWT5M0Hw&controls=1&modestbranding=1&rel=0"
+        title="CAD Projects Showcase"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </div>
+
+  </div>
+</section>
+
       {/* PROCESS */}
       <section id="process" className="relative py-40 bg-zinc-950 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
@@ -316,7 +337,7 @@ export default function CADProjectsWebsite() {
               />
 
               <textarea
-                rows="6"
+                rows={6}
                 placeholder="Tell us about your project..."
                 className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition resize-none"
               />
