@@ -1,0 +1,351 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { ArrowRight, Cog, Layers3, Wrench, Factory } from "lucide-react"
+
+const services = [
+  {
+    title: "Mechanical 3D Models",
+    description:
+      "Production-ready Siemens NX mechanical modelling for engineering and manufacturing applications.",
+    icon: Cog,
+  },
+  {
+    title: "3D Printing & Prototyping",
+    description:
+      "Rapid prototyping workflows that transform concepts into real-world manufactured components.",
+    icon: Factory,
+  },
+  {
+    title: "Design Consultancy",
+    description:
+      "Engineering-focused consultancy for manufacturability, optimisation, and product development.",
+    icon: Layers3,
+  },
+  {
+    title: "2D Drawings & Documentation",
+    description:
+      "Detailed manufacturing drawings, technical documentation, and precision drafting.",
+    icon: Wrench,
+  },
+]
+
+export default function CADProjectsWebsite() {
+  return (
+    <main className="bg-black text-white overflow-x-hidden selection:bg-[#FF834F] selection:text-black">
+      {/* NAV */}
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/30 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <img
+              src="/transparent.png"
+              alt="CAD Projects LTD"
+              className="h-10 w-auto"
+            />
+          </div>
+
+          <div className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
+            <a href="#services" className="hover:text-[#FF834F] transition">
+              Services
+            </a>
+            <a href="#process" className="hover:text-[#FF834F] transition">
+              Process
+            </a>
+            <a href="#contact" className="hover:text-[#FF834F] transition">
+              Contact
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        >
+          <source src="hero.mp4" type="video/mp4" />
+        </video>
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
+
+        <div className="absolute inset-0 opacity-[0.04] bg-[url('/cad-grid.svg')] bg-cover" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2 }}
+          className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center"
+        >
+          <div>
+            <div className="inline-flex items-center gap-3 border border-[#FF834F]/20 bg-[#FF834F]/10 px-5 py-2 rounded-full mb-8">
+              <div className="w-2 h-2 rounded-full bg-[#FF834F] animate-pulse" />
+              <span className="text-sm uppercase tracking-[0.25em] text-[#FFAE78]">
+                Siemens NX • Mechanical CAD • Prototyping
+              </span>
+            </div>
+
+            <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tight mb-8">
+              Turning
+              <span className="block text-[#FF834F]">Concepts</span>
+              Into Reality
+            </h1>
+
+            <p className="text-xl text-zinc-400 leading-relaxed max-w-2xl mb-10">
+              Premium CAD engineering solutions for manufacturers, innovators,
+              and engineering teams. From precision 3D modelling to
+              manufacturing-ready technical documentation.
+            </p>
+
+            <div className="flex flex-wrap gap-5">
+              <button className="group px-8 py-5 bg-[#FF834F] hover:bg-[#FFAE78] text-black rounded-2xl font-semibold transition-all duration-300 flex items-center gap-3 shadow-2xl shadow-[#FF834F]/20">
+                Start a Project
+                <ArrowRight className="group-hover:translate-x-1 transition" />
+              </button>
+
+              <button className="px-8 py-5 border border-white/10 hover:border-[#FF834F]/40 rounded-2xl transition-all duration-300 text-zinc-300 hover:text-white bg-white/5 backdrop-blur-sm">
+                View Services
+              </button>
+            </div>
+          </div>
+
+          <div className="relative hidden lg:block">
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{ repeat: Infinity, duration: 6 }}
+              className="relative rounded-[2rem] overflow-hidden border border-white/10 bg-zinc-950/60 backdrop-blur-xl shadow-2xl"
+            >
+              <img
+                src="/laptop.jpg"
+                alt="CAD workflow"
+                className="w-full h-[700px] object-cover opacity-90"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+
+              <div className="absolute bottom-8 left-8 right-8 p-6 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl">
+                <p className="text-sm uppercase tracking-[0.3em] text-[#FFAE78] mb-3">
+                  Engineering Precision
+                </p>
+
+                <h3 className="text-3xl font-bold leading-tight">
+                  Industrial CAD workflows built for production.
+                </h3>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* IMAGE STRIP */}
+      <section className="relative py-10 border-y border-white/5 bg-zinc-950">
+        <div className="grid md:grid-cols-3 gap-4 px-4">
+          {[
+            "/printing.jpg",
+            "/customer.jpg",
+            "/laptop.jpg",
+          ].map((image, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.02 }}
+              className="relative overflow-hidden rounded-[2rem] border border-white/10 h-[320px]"
+            >
+              <img
+                src={image}
+                className="w-full h-full object-cover"
+                alt="CAD Projects"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section id="services" className="relative py-40 bg-black overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_center,#FF834F_0,transparent_70%)]" />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="max-w-3xl mb-24">
+            <p className="uppercase tracking-[0.3em] text-[#FFAE78] text-sm mb-5">
+              Services
+            </p>
+
+            <h2 className="text-5xl md:text-7xl font-black leading-[1] mb-8">
+              Industrial CAD
+              <span className="block text-[#FF834F]">Solutions</span>
+            </h2>
+
+            <p className="text-zinc-400 text-xl leading-relaxed">
+              High-end engineering support for modern manufacturing,
+              prototyping, and product development workflows.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {services.map((service, i) => {
+              const Icon = service.icon
+
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="group relative p-10 rounded-[2rem] border border-white/10 bg-zinc-950/70 hover:border-[#FF834F]/40 transition-all duration-500 overflow-hidden"
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-[#FF834F]/10 to-transparent" />
+
+                  <div className="relative z-10">
+                    <div className="w-16 h-16 rounded-2xl border border-[#FF834F]/20 bg-[#FF834F]/10 flex items-center justify-center mb-8">
+                      <Icon className="text-[#FF834F]" size={28} />
+                    </div>
+
+                    <h3 className="text-3xl font-bold mb-5">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-zinc-400 leading-relaxed text-lg">
+                      {service.description}
+                    </p>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section id="process" className="relative py-40 bg-zinc-950 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <p className="uppercase tracking-[0.3em] text-[#FFAE78] text-sm mb-5">
+              Workflow
+            </p>
+
+            <h2 className="text-5xl md:text-7xl font-black leading-[0.95] mb-10">
+              Precision
+              <span className="block text-[#FF834F]">Engineering</span>
+            </h2>
+
+            <div className="space-y-10">
+              {[
+                ["01", "Consultation & Discovery"],
+                ["02", "CAD Development & Modelling"],
+                ["03", "Manufacturing Documentation"],
+                ["04", "Prototype & Production Support"],
+              ].map((step, i) => (
+                <div key={i} className="flex gap-6 items-start">
+                  <span className="text-5xl font-black text-[#FF834F]/30">
+                    {step[0]}
+                  </span>
+
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">{step[1]}</h3>
+                    <p className="text-zinc-500 leading-relaxed">
+                      Detailed engineering workflows tailored to real-world
+                      manufacturing and industrial applications.
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute inset-0 bg-[#FF834F]/20 blur-[120px]" />
+
+            <div className="relative rounded-[2rem] overflow-hidden border border-white/10 bg-black">
+              <img
+                src="/printing.jpg"
+                alt="3D printing"
+                className="w-full h-[700px] object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section
+        id="contact"
+        className="relative py-40 bg-black border-t border-white/5"
+      >
+        <div className="max-w-5xl mx-auto px-6 text-center mb-20">
+          <p className="uppercase tracking-[0.3em] text-[#FFAE78] text-sm mb-5">
+            Contact
+          </p>
+
+          <h2 className="text-5xl md:text-7xl font-black leading-[0.95] mb-8">
+            Let’s Build
+            <span className="block text-[#FF834F]">Something Real</span>
+          </h2>
+
+          <p className="text-zinc-400 text-xl max-w-3xl mx-auto leading-relaxed">
+            Whether you need CAD support, manufacturing documentation, or rapid
+            prototyping assistance, CAD Projects LTD is ready to help bring
+            your concept into reality.
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="p-10 md:p-14 rounded-[2rem] border border-white/10 bg-zinc-950/70 backdrop-blur-2xl">
+            <form className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <input
+                  placeholder="Full Name"
+                  className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition"
+                />
+
+                <input
+                  placeholder="Company"
+                  className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition"
+                />
+              </div>
+
+              <input
+                placeholder="Email Address"
+                className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition"
+              />
+
+              <textarea
+                rows="6"
+                placeholder="Tell us about your project..."
+                className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition resize-none"
+              />
+
+              <button className="w-full py-5 rounded-2xl bg-[#FF834F] hover:bg-[#FFAE78] text-black font-bold text-lg transition-all duration-300 shadow-2xl shadow-[#FF834F]/20">
+                Submit Enquiry
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-10 border-t border-white/5 bg-black">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-6 items-center justify-between">
+          <div className="flex items-center gap-4">
+            <img
+              src="/transparent.png"
+              alt="CAD Projects"
+              className="h-8 w-auto"
+            />
+          </div>
+
+          <div className="text-zinc-500 text-sm text-center md:text-right">
+            <p>cad-projects.co.uk</p>
+            <p>Turning Concepts Into Reality</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+  )
+}
