@@ -1,7 +1,18 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Cog, Layers3, Wrench, Factory } from "lucide-react"
+import {
+  ArrowRight,
+  MessageSquare,
+  Ruler,
+  Printer,
+  FileText,
+  Factory,
+  Cog,
+  Layers3,
+  Wrench,
+  ChevronRight
+} from "lucide-react";
 
 const services = [
   {
@@ -80,7 +91,7 @@ export default function CADProjectsWebsite() {
             </div>
 
             <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tight mb-8">
-              Turning
+              We Turn
               <span className="block text-[#FF834F]">Concepts</span>
               Into Reality
             </h1>
@@ -92,14 +103,20 @@ export default function CADProjectsWebsite() {
             </p>
 
             <div className="flex flex-wrap gap-5">
-              <button className="group px-8 py-5 bg-[#FF834F] hover:bg-[#FFAE78] text-black rounded-2xl font-semibold transition-all duration-300 flex items-center gap-3 shadow-2xl shadow-[#FF834F]/20">
-                Start a Project
-                <ArrowRight className="group-hover:translate-x-1 transition" />
-              </button>
+<a
+  href="#contact"
+  className="group px-8 py-5 bg-[#FF834F] hover:bg-[#FFAE78] text-black rounded-2xl font-semibold transition-all duration-300 inline-flex items-center"
+>
+  Contact Us
+  <ArrowRight className="group-hover:translate-x-1 transition" />
+</a>             
 
-              <button className="px-8 py-5 border border-white/10 hover:border-[#FF834F]/40 rounded-2xl transition-all duration-300 text-zinc-300 hover:text-white bg-white/5 backdrop-blur-sm">
-                View Services
-              </button>
+<a
+  href="#services"
+  className="px-8 py-5 border border-white/10 hover:border-[#FF834F]/40 rounded-2xl transition-all duration-300 text-zinc-300 inline-flex items-center"
+>
+  View Services
+</a>
             </div>
           </div>
 
@@ -135,7 +152,7 @@ export default function CADProjectsWebsite() {
           {[
             "/printing.jpg",
             "/customer.jpg",
-            "/laptop.jpg",
+            "/cad_projects_CPBorder-strip.png",
           ].map((image, i) => (
             <motion.div
               key={i}
@@ -243,61 +260,115 @@ export default function CADProjectsWebsite() {
 
       {/* PROCESS */}
       <section id="process" className="relative py-40 bg-zinc-950 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+<div className="max-w-7xl mx-auto px-6">
           <div>
             <p className="uppercase tracking-[0.3em] text-[#FFAE78] text-sm mb-5">
               Workflow
             </p>
 
-            <h2 className="text-5xl md:text-7xl font-black leading-[0.95] mb-10">
-              Precision
-              <span className="block text-[#FF834F]">Engineering</span>
-            </h2>
+<h2 className="text-5xl md:text-7xl font-black leading-[0.95] mb-10">
+  Concept
+  <span className="block text-[#FF834F]">to Production</span>
+</h2>
 
             <div className="space-y-10">
-              {[
-                ["01", "Consultation & Discovery"],
-                ["02", "CAD Development & Modelling"],
-                ["03", "Manufacturing Documentation"],
-                ["04", "Prototype & Production Support"],
-              ].map((step, i) => (
+{[
+  {
+    number: "01",
+    title: "Initial Consultation",
+    description:
+      "Understanding your requirements, objectives and manufacturing constraints to define a clear project scope and engineering approach.",
+  },
+  {
+    number: "02",
+    title: "CAD Development & Mechanical Design",
+    description:
+      "Developing detailed 3D CAD models and engineering solutions using Siemens NX with a focus on functionality, manufacturability and performance.",
+  },
+  {
+    number: "03",
+    title: "Prototype Development & Validation",
+    description:
+      "Producing functional prototypes and design iterations to validate form, fit and function before committing to production.",
+  },
+  {
+    number: "04",
+    title: "Manufacturing & Technical Documentation",
+    description:
+      "Creating production-ready engineering drawings, assembly documentation and technical deliverables to support manufacturing and procurement.",
+  },
+].map((step, i) => (
                 <div key={i} className="flex gap-6 items-start">
                   <span className="text-5xl font-black text-[#FF834F]/30">
-                    {step[0]}
+{step.number}
                   </span>
 
                   <div>
-                    <h3 className="text-2xl font-bold mb-2">{step[1]}</h3>
-                    <p className="text-zinc-500 leading-relaxed">
-                      Detailed engineering workflows tailored to real-world
-                      manufacturing and industrial applications.
-                    </p>
+                    <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
+<p className="text-zinc-500 leading-relaxed">
+  {step.description}
+</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute inset-0 bg-[#FF834F]/20 blur-[120px]" />
 
-            <div className="relative rounded-[2rem] overflow-hidden border border-white/10 bg-black">
-              <img
-                src="/printing.jpg"
-                alt="3D printing"
-                className="w-full h-[700px] object-cover"
-              />
+      <div className="mt-20">
+        <div className="relative">
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+<div className="absolute top-10 left-[5%] right-[5%] h-[2px] bg-[#FF834F]/30"></div>
+
+          <div className="relative flex justify-between items-start gap-4">
+
+            <div className="flex flex-col items-center text-center">
+              <div className="w-24 h-24 rounded-full bg-[#FF834F] text-black flex items-center justify-center text-4xl">
+<MessageSquare className="w-8 h-8 text-black" />
+              </div>
+              <h4 className="mt-4 font-bold">Consultation</h4>
             </div>
+<ChevronRight className="w-6 h-6 text-[#FF834F]/60 mt-7" />
+            <div className="flex flex-col items-center text-center">
+              <div className="w-24 h-24 rounded-full bg-[#FF834F] text-black flex items-center justify-center text-4xl">
+<Ruler className="w-8 h-8 text-black" />
+              </div>
+              <h4 className="mt-4 font-bold">CAD Design</h4>
+            </div>
+<ChevronRight className="w-6 h-6 text-[#FF834F]/60 mt-7" />
+            <div className="flex flex-col items-center text-center">
+              <div className="w-24 h-24 rounded-full bg-[#FF834F] text-black flex items-center justify-center text-4xl">
+<Printer className="w-8 h-8 text-black" />
+              </div>
+              <h4 className="mt-4 font-bold">Prototype</h4>
+            </div>
+<ChevronRight className="w-6 h-6 text-[#FF834F]/60 mt-7" />
+            <div className="flex flex-col items-center text-center">
+              <div className="w-24 h-24 rounded-full bg-[#FF834F] text-black flex items-center justify-center text-4xl">
+<FileText className="w-8 h-8 text-black" />
+              </div>
+              <h4 className="mt-4 font-bold">Documentation</h4>
+            </div>
+<ChevronRight className="w-6 h-6 text-[#FF834F]/60 mt-7" />
+<div className="flex flex-col items-center text-center">
+  <div className="w-24 h-24 rounded-full bg-[#FF834F] flex items-center justify-center">
+    <Factory className="w-8 h-8 text-black" />
+  </div>
+  <h4 className="mt-4 font-bold">Production Ready</h4>
+</div>
+
           </div>
         </div>
+      </div>
+
+    </div>
+
       </section>
 
       {/* CONTACT */}
       <section
         id="contact"
-        className="relative py-40 bg-black border-t border-white/5"
+        className="relative py-32 bg-black border-t border-white/5"
       >
         <div className="max-w-5xl mx-auto px-6 text-center mb-20">
           <p className="uppercase tracking-[0.3em] text-[#FFAE78] text-sm mb-5">
@@ -318,29 +389,45 @@ export default function CADProjectsWebsite() {
 
         <div className="max-w-4xl mx-auto px-6">
           <div className="p-10 md:p-14 rounded-[2rem] border border-white/10 bg-zinc-950/70 backdrop-blur-2xl">
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <input
-                  placeholder="Full Name"
-                  className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition"
-                />
+<form
+  action="https://formspree.io/f/xeewedwd"
+  method="POST"
+  className="space-y-6"
+>
 
-                <input
-                  placeholder="Company"
-                  className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition"
-                />
+<input
+  type="hidden"
+  name="_subject"
+  value="New CAD Projects Website Enquiry"
+/>
+              <div className="grid md:grid-cols-2 gap-6">
+<input
+  name="name"
+  placeholder="Full Name"
+  className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition"
+/>
+
+<input
+  name="company"
+  placeholder="Company"
+  className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition"
+/>
               </div>
 
-              <input
-                placeholder="Email Address"
-                className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition"
-              />
+<input
+  name="email"
+  type="email"
+  required
+  placeholder="Email Address"
+  className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition"
+/>
 
-              <textarea
-                rows={6}
-                placeholder="Tell us about your project..."
-                className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition resize-none"
-              />
+<textarea
+  name="project"
+  rows={6}
+  placeholder="Tell us about your project..."
+  className="w-full px-6 py-5 rounded-2xl bg-black border border-white/10 focus:border-[#FF834F] outline-none transition resize-none"
+/>
 
               <button className="w-full py-5 rounded-2xl bg-[#FF834F] hover:bg-[#FFAE78] text-black font-bold text-lg transition-all duration-300 shadow-2xl shadow-[#FF834F]/20">
                 Submit Enquiry
@@ -351,22 +438,28 @@ export default function CADProjectsWebsite() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-10 border-t border-white/5 bg-black">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-6 items-center justify-between">
-          <div className="flex items-center gap-4">
-            <img
-              src="/transparent.png"
-              alt="CAD Projects"
-              className="h-8 w-auto"
-            />
-          </div>
+<footer className="py-10 border-t border-white/5 bg-black">
+  <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-6 items-center justify-between">
 
-          <div className="text-zinc-500 text-sm text-center md:text-right">
-            <p>cad-projects.co.uk</p>
-            <p>Turning Concepts Into Reality</p>
-          </div>
-        </div>
-      </footer>
+<div className="flex flex-col items-start">
+  <img
+    src="/transparent.png"
+    alt="CAD Projects"
+    className="h-10 w-auto"
+  />
+
+  <p className="text-zinc-500 text-sm mt-2">
+    © 2026 CAD Projects. All rights reserved.
+  </p>
+</div>
+<div className="text-zinc-500 text-sm text-center md:text-right">
+  <p>sales@cad-projects.co.uk</p>
+  <p>We Turn Concepts Into Reality</p>
+</div>
+
+</div> {/* closes max-w-7xl container */}
+
+</footer>
     </main>
   )
 }
